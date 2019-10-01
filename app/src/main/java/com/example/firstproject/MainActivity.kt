@@ -16,11 +16,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        numCounter = dataStore().getLong(NUM_COUNTER_STATE, numCounter)
+        var user = intent.extras?.get("username").toString()
+        numCounter = dataStore().getLong(user, numCounter)
         counterText.text = numCounter.toString()
 
+        intent.extras?.get("username")
+
         if (savedInstanceState != null) {
-            numCounter = savedInstanceState.getLong(NUM_COUNTER_STATE)
+            numCounter = savedInstanceState.getLong(user)
             counterText.text = numCounter.toString()
         }
 
@@ -32,12 +35,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        dataStore().edit().putLong(NUM_COUNTER_STATE, numCounter).apply()
+        dataStore().edit().putLong(intent.extras?.get("username").toString(), numCounter).apply()
     }
 
-    override fun onSaveInstanceState(outState: Bundle?) {
-        outState?.run {
-            putLong(NUM_COUNTER_STATE, numCounter)
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.run {
+            putLong(intent.extras?.get("username").toString(), numCounter)
         }
         super.onSaveInstanceState(outState)
     }
