@@ -5,7 +5,6 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
-import com.example.firstproject.util.toggleVisibility
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,20 +15,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var user = intent.extras?.get("username").toString()
+        val user = intent.extras?.get("username").toString()
         numCounter = dataStore().getLong(user, numCounter)
-        counterText.text = numCounter.toString()
-
-        intent.extras?.get("username")
+        counterText.text = "$" + numCounter.toString()
 
         if (savedInstanceState != null) {
             numCounter = savedInstanceState.getLong(user)
-            counterText.text = numCounter.toString()
+            counterText.text = "$" + numCounter.toString()
         }
 
         button.setOnClickListener {
             numCounter++
-            counterText.text = numCounter.toString()
+            counterText.text = "$" + numCounter.toString()
         }
     }
 
@@ -43,9 +40,5 @@ class MainActivity : AppCompatActivity() {
             putLong(intent.extras?.get("username").toString(), numCounter)
         }
         super.onSaveInstanceState(outState)
-    }
-
-    companion object {
-        private const val NUM_COUNTER_STATE = "numCounterState"
     }
 }

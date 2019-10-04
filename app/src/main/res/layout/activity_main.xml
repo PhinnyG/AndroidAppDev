@@ -11,7 +11,7 @@
         android:id="@+id/counterText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello! Click button to start!"
+        android:text="$0"
         android:textSize="25pt"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"

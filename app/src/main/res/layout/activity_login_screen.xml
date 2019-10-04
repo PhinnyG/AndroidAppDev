@@ -10,7 +10,7 @@
         android:id="@+id/LoginText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to Counting"
+        android:text="Interstellar Clicker"
         android:textSize="25pt"
         android:gravity="center"
         app:layout_constraintLeft_toLeftOf="parent"
