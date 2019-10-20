@@ -9,8 +9,10 @@
         android:roundIcon="@drawable/earth"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".LoginScreen">
+        <activity android:name=".CountRepository"></activity>
+        <activity android:name=".ViewModel.CountViewModel" />
+        <activity android:name=".UI.MainActivity" />
+        <activity android:name=".UI.LoginScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

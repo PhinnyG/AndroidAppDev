@@ -4,29 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".UI.MainActivity">
 
 
     <TextView
         android:id="@+id/counterText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$0"
-        android:textSize="25pt"
         android:gravity="center"
+        android:text="0 Gallons"
+        android:textSize="25pt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.194" />
 
-    <Button
-        android:id="@+id/button"
+    <ImageView
+        android:id="@+id/clickerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Press ME!"
+        android:adjustViewBounds="true"
+        android:padding="-10in"
+        android:src="@drawable/earth"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/counterText" />
+        app:layout_constraintTop_toTopOf="@id/counterText"
+        app:layout_constraintVertical_bias=".5" />
+
+    <Button
+        android:id="@+id/leftButton"
+        android:layout_width="133.3dp"
+        android:layout_height="97dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/centerButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="634dp" />
+
+    <Button
+        android:id="@+id/centerButton"
+        android:layout_width="133.3dp"
+        android:layout_height="97dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/rightButton"
+        android:layout_width="133.3dp"
+        android:layout_height="97dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/centerButton"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteX="278dp"
+        tools:layout_editor_absoluteY="634dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
