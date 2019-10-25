@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateLocation(location: Int) {
+        locationNum = location
         if (location == 0) {
             clickerButton.setImageResource(R.drawable.earth)
             locationText.text = "Earth"
@@ -60,7 +61,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkCounter(count: Long) {
-        if (count >= 9 && locationNum == 1) {
+        if (count >= 9 && locationNum < 1) {
             centerButton.text = "Travel to Mars"
             centerButton.visibility = View.VISIBLE
         }
