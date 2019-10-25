@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.MainActivity">
+    tools:context=".ui.MainActivity">
 
 
     <TextView
@@ -20,23 +20,34 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.194" />
 
+    <TextView
+        android:id="@+id/locationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Earth"
+        android:textSize="25pt"
+        app:layout_constraintBottom_toTopOf="@id/counterText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/clickerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:padding="-10in"
         android:src="@drawable/earth"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/counterText"
-        app:layout_constraintVertical_bias=".5" />
+        app:layout_constraintTop_toTopOf="@id/counterText" />
 
     <Button
         android:id="@+id/leftButton"
         android:layout_width="133.3dp"
         android:layout_height="97dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toLeftOf="@id/centerButton"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -47,6 +58,7 @@
         android:id="@+id/centerButton"
         android:layout_width="133.3dp"
         android:layout_height="97dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -55,6 +67,7 @@
         android:id="@+id/rightButton"
         android:layout_width="133.3dp"
         android:layout_height="97dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/centerButton"
         app:layout_constraintRight_toRightOf="parent"

@@ -15,13 +15,17 @@ class CountRepository(context: Context) {
         liveSharedPreferences = LiveSharedPreferences(preferences)
     }
 
-    fun setUserCount(name: String, count: Long) {
+    fun setUserCount(name: String, count: Long) =
         preferences.edit().putLong(name, count).apply()
-    }
 
     fun getUserCount(name: String): LiveData<Long> =
         Transformations.map(liveSharedPreferences.listenMultiple(listOf(name), 0L)) { it[name]}
 
+    fun getUserLocation(name: String): LiveData<Int> =
+        Transformations.map(liveSharedPreferences.listenMultiple(listOf(name), 0)) { it[name]}
+
+    fun setUserLocation(name: String, location: Int) =
+        preferences.edit().putInt(name, location).apply()
 
     companion object {
         private const val PREFS = "clickCounts"
