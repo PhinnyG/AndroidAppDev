@@ -9,7 +9,6 @@
         android:roundIcon="@drawable/earth"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.Shop"></activity>
         <activity android:name=".CountRepository" />
         <activity android:name=".viewModel.CountViewModel" />
         <activity android:name=".ui.MainActivity" />

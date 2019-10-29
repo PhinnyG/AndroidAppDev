@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
 
         countViewModel = ViewModelProviders.of(this).get(CountViewModel::class.java)
         countViewModel.getUserCount(getUsername()).observe(this, androidx.lifecycle.Observer<Long> { updateCounter(it) })
