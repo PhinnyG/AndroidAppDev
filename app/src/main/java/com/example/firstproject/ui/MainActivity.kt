@@ -8,6 +8,7 @@ import com.example.firstproject.R
 import com.example.firstproject.viewModel.CountViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
+import com.bumptech.glide.Glide
 
 class MainActivity : AppCompatActivity() {
     private lateinit var countViewModel: CountViewModel
@@ -18,12 +19,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
         setSupportActionBar(toolbar)
 
         countViewModel = ViewModelProviders.of(this).get(CountViewModel::class.java)
         countViewModel.getUserCount(getUsername()).observe(this, androidx.lifecycle.Observer<Long> { updateCounter(it) })
         countViewModel.getUserLocation(getUsername()).observe(this, androidx.lifecycle.Observer<Int> { updateLocation(it) })
+
+        val gif = countViewModel.getGif().observe(
+            this,
+            androidx.lifecycle.Observer {
+                Glide.with(this)
+                    .load(it.url)
+                    .into(gifImage)  })
+
+        setContentView(R.layout.activity_main)
 
         clickerButton.setOnClickListener {
             countViewModel.setUserCount(getUsername(), numCounter + 1)

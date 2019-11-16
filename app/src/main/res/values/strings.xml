@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">First Project</string>
+    <string name="title_activity_name_response">NameResponse</string>
 </resources>
