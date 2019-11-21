@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProviders
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkManager
 import com.example.firstproject.R
 import com.example.firstproject.viewModel.CountViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -20,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setSupportActionBar(toolbar)
 
         countViewModel = ViewModelProviders.of(this).get(CountViewModel::class.java)
         countViewModel.getUserCount(getUsername()).observe(this, androidx.lifecycle.Observer<Long> { updateCounter(it) })
@@ -35,6 +36,8 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
+
+
         clickerButton.setOnClickListener {
             countViewModel.setUserCount(getUsername(), numCounter + 1)
             checkCounter(numCounter)
@@ -44,6 +47,8 @@ class MainActivity : AppCompatActivity() {
             countViewModel.setUserLocation(getUsername(), locationNum + 1)
             clickerButton.setImageResource(R.drawable.mars3)
             marsAdj()
+            countViewModel.doBackgroundWork()
+            countViewModel.doBackgroundWork()
         }
     }
 
